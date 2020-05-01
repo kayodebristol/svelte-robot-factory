@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "rootDir": "src",
+      "outDir": "dist",
+      "allowSyntheticDefaultImports": true,
+      "target": "es5",
+      "declaration": true,
+      "declarationMap": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "strictNullChecks": true,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "skipLibCheck": true,
+      "lib": ["es6", "dom"],
+      "strictPropertyInitialization": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+  }
+  

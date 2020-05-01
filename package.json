@@ -1,0 +1,47 @@
+{
+  "name": "@kayodebristol/svelte-robot-factory",
+  "version": "0.1.0",
+  "description": "Helper for svelte robot integration",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayodebristol/svelte-robot-factory.git"
+  },
+  "keywords": [
+    "svelte",
+    "robot",
+    "finite",
+    "state",
+    "machine"
+  ],
+  "author": "Kayode Bristol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kayodebristol/svelte-robot/issues"
+  },
+  "homepage": "https://github.com/kayodebristol/svelte-robot#readme",
+  "dependencies": {
+    "robot3": "^0.2.16",
+    "rollup": "^2.7.3",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "svelte": "^3.21.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "robot3": "~0.2.x",
+    "svelte": "~3.x"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^7.1.3"
+  }
+}
