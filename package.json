@@ -1,6 +1,6 @@
 {
   "name": "@kayodebristol/svelte-robot-factory",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Helper for svelte robot integration",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

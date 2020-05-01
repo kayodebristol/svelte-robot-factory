@@ -13,5 +13,5 @@ export function useMachine<E>(machine: Machine, event:{ [K in keyof E]: any } ):
     const {subscribe, set} = writable(
         interpret(machine, service => set(service), event)
     )
-    return {subscribe }
+    return {subscribe}
 }
