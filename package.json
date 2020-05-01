@@ -1,6 +1,6 @@
 {
   "name": "@kayodebristol/svelte-robot-factory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Helper for svelte robot integration",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -26,9 +26,9 @@
   "author": "Kayode Bristol",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kayodebristol/svelte-robot/issues"
+    "url": "https://github.com/kayodebristol/svelte-robot-factory/issues"
   },
-  "homepage": "https://github.com/kayodebristol/svelte-robot#readme",
+  "homepage": "https://github.com/kayodebristol/svelte-robot-factory#readme",
   "dependencies": {
     "robot3": "^0.2.16",
     "rollup": "^2.7.3",
