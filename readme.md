@@ -41,7 +41,7 @@ export function useMachine(machine, event) {
 ```js
 /// store
 import { createMachine, state, transition, invoke, reduce } from 'robot3';
-import { useMachine } from './svelte-robot-factory.js';
+import { useMachine } from '@kayodebristol/svelte-robot-factory';
 const context = event => ({
 	foo: event.foo
 });
