@@ -25,20 +25,6 @@
 ```
 
 ```js
-/// svelte-robot-factory
-import { writable } from 'svelte/store';
-import { interpret } from 'robot3';
-
-export function useMachine(machine, event) {
-    
-    const {subscribe, set} = writable(
-        interpret(machine, service => set(service), event)
-    )
-    return {subscribe};
-}
-```
-
-```js
 /// store
 import { createMachine, state, transition, invoke, reduce } from 'robot3';
 import { useMachine } from '@kayodebristol/svelte-robot-factory';
