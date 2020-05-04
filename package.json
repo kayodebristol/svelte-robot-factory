@@ -1,7 +1,7 @@
 {
-  "name": "@kayodebristol/svelte-robot-factory",
-  "version": "0.1.2",
-  "description": "Helper for svelte robot integration",
+  "name": "svelte-robot-factory",
+  "version": "0.1.3",
+  "description": "svelte robot integration",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
@@ -19,12 +19,11 @@
   "keywords": [
     "svelte",
     "robot",
-    "finite",
-    "state",
-    "machine"
+    "finite state machine",
+    "integration"
   ],
   "author": "Kayode Bristol",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kayodebristol/svelte-robot-factory/issues"
   },
