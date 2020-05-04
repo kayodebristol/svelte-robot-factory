@@ -28,8 +28,8 @@ Arguments:
 Returns:
 - [Writable svelte store](https://svelte.dev/docs#writable) which implements a robot [service](https://thisrobot.life/api/interpret.html#service) on subscribe 
 
-```typescript
-function useMachine<E>(machine: Machine, event:{ [K in keyof E]: any } ):  any {
+```javascript
+function useMachine(machine, event)
     const {subscribe, set} = writable(
         interpret(machine, service => set(service), event)
     )
