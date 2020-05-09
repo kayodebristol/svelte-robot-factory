@@ -38,9 +38,9 @@ function useMachine(machine, event)
 ```
 
 
-## example
+## Example
 
-[view in REPL](https://svelte.dev/repl/a9904c210b474bd2ab71d9b7c26c4c38?version=3.12.1)
+[View in REPL](https://svelte.dev/repl/a9904c210b474bd2ab71d9b7c26c4c38?version=3.12.1)
 
 ```js
 <!--
