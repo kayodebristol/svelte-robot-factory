@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kayodebristol/svelte-robot-factory.git"
+    "url": "https://github.com/kayodebristol/svelte-robot-factory.git"
   },
   "keywords": [
     "svelte",
