@@ -5,7 +5,7 @@ Table of Contents
 - [svelte-robot-factory](#svelte-robot-factory)
   - [Installation](#installation)
   - [API](#api)
-  - [example](#example)
+  - [Example](#example)
   - [License](#license)
 
 The svelte-robot-factory returns a svelte writable store which implements a robot machine service.
@@ -40,9 +40,10 @@ function useMachine(machine, event)
 }
 ```
 
-## example
 
-[view in REPL](https://svelte.dev/repl/a9904c210b474bd2ab71d9b7c26c4c38?version=3.12.1)
+## Example
+
+[View in REPL](https://svelte.dev/repl/a9904c210b474bd2ab71d9b7c26c4c38?version=3.12.1)
 
 ```js
 <!--
@@ -108,7 +109,6 @@ const machine = createMachine(
 const service = useMachine(machine, event);
 export default service;
 ```
-
 
 ## License
 
