@@ -3,10 +3,10 @@
 Table of Contents
 
 - [svelte-robot-factory](#svelte-robot-factory)
-	- [Installation](#installation)
-	- [API](#api)
-	- [example](#example)
-	- [License](#license)
+  - [Installation](#installation)
+  - [API](#api)
+  - [example](#example)
+  - [License](#license)
 
 The svelte-robot-factory returns a svelte writable store which implements a robot machine service.
 
@@ -66,6 +66,16 @@ function useMachine(machine, event)
 ```
 
 ```js
+/// Child.svelte
+<script>
+import service from './store.js';
+$: foo = $service.context.foo;
+</script>
+
+<div>Context value of foo property: {foo}</div>
+```
+
+```js
 /// store
 import { createMachine, state, transition, invoke, reduce } from "robot3";
 import { useMachine } from "svelte-robot-factory";
@@ -99,15 +109,6 @@ const service = useMachine(machine, event);
 export default service;
 ```
 
-```js
-/// Child.svelte
-<script>
-import service from './store.js';
-$: foo = $service.context.foo;
-</script>
-
-<div>Context value of foo property: {foo}</div>
-```
 
 ## License
 
