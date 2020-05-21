@@ -1,6 +1,6 @@
 {
   "name": "svelte-robot-factory",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "svelte robot integration",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -29,12 +29,12 @@
   },
   "homepage": "https://github.com/kayodebristol/svelte-robot-factory#readme",
   "dependencies": {
-    "robot3": "^0.2.16",
-    "rollup": "^2.7.3",
+    "robot3": "^0.2.18",
+    "rollup": "^2.10.5",
     "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-typescript2": "^0.27.0",
-    "svelte": "^3.21.0",
-    "typescript": "^3.8.3"
+    "rollup-plugin-typescript2": "^0.27.1",
+    "svelte": "^3.22.3",
+    "typescript": "^3.9.3"
   },
   "peerDependencies": {
     "robot3": "~0.2.x",
