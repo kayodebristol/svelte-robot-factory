@@ -78,13 +78,13 @@ $: foo = $service.context.foo;
 
 ```js
 /// store
-import { createMachine, state, transition, invoke, reduce } from "robot3";
+import { createMachine, state, transition, reduce } from "robot3";
 import { useMachine } from "svelte-robot-factory";
 const context = (event) => ({
   foo: event.foo,
 });
 const event = {
-  foo: "foo",
+  foo: "initial",
 };
 const machine = createMachine(
   {
