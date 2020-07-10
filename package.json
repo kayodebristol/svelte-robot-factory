@@ -10,13 +10,15 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kayodebristol/svelte-robot-factory.git"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "keywords": [
     "svelte",
     "robot",
@@ -42,6 +44,9 @@
     "svelte": "~3.x"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^8.1.0"
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "@types/jest": "^26.0.4",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.1"
   }
 }
