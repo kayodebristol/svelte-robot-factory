@@ -16,6 +16,7 @@
     "type": "git",
     "url": "https://github.com/kayodebristol/svelte-robot-factory.git"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "svelte",
     "robot",
