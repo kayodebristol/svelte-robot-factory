@@ -13,7 +13,7 @@ The svelte-robot-factory returns a svelte writable store which implements a robo
 ## Installation
 
 ```
-npm install svelte-robot-factory --save
+npm install @kayodebristol/svelte-robot-factory --save
 ```
 
 ## API
