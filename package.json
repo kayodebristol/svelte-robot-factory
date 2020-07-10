@@ -1,10 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "@kayodebristol/svelte-robot-factory",
-=======
-  "name": "svelte-robot-factory",
->>>>>>> 5aa9b074e7ca612c09698e13ae7547d71ef107cf
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "svelte robot integration",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
