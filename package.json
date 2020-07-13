@@ -1,5 +1,5 @@
 {
-  "name": "@kayodebristol/svelte-robot-factory",
+  "name": "svelte-robot-factory",
   "version": "1.0.2",
   "description": "svelte robot integration",
   "main": "dist/index.js",
@@ -15,9 +15,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kayodebristol/svelte-robot-factory.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "svelte",
