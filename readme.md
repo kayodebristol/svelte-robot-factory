@@ -1,3 +1,10 @@
+---
+layout: page.njk
+title: robot-hooks
+tags: integrations
+permalink: integrations/robot-hooks.html
+---
+
 # svelte-robot-factory
 
 Table of Contents
@@ -12,8 +19,16 @@ The svelte-robot-factory returns a svelte writable store which implements a robo
 
 ## Installation
 
+npm:
+
+```bash
+npm install svelte-robot-factory robot3 --save
 ```
-npm install svelte-robot-factory --save
+
+yarn:
+
+```bash
+yarn add svelte-robot-factory robot3
 ```
 
 ## API
@@ -40,7 +55,6 @@ function useMachine(machine, event)
 }
 ```
 
-
 ## Example
 
 [View in REPL](https://svelte.dev/repl/a9904c210b474bd2ab71d9b7c26c4c38?version=3.12.1)
@@ -52,25 +66,25 @@ function useMachine(machine, event)
 -->
 
 <script>
-	import service from './store.js';
-	import Child from './Child.svelte'
-	const send = $service.send;
-	$: current = $service.machine.current
+  import service from './store.js';
+  import Child from './Child.svelte'
+  const send = $service.send;
+  $: current = $service.machine.current
 </script>
 
 <div>Current state value: {current}</div>
 <Child/>
 
 <button on:click={() => send('toggle')}>
-	Toggle
+  Toggle
 </button>
 ```
 
 ```js
 /// Child.svelte
 <script>
-import service from './store.js';
-$: foo = $service.context.foo;
+  import service from './store.js';
+  $: foo = $service.context.foo;
 </script>
 
 <div>Context value of foo property: {foo}</div>
@@ -78,33 +92,26 @@ $: foo = $service.context.foo;
 
 ```js
 /// store
-import { createMachine, state, transition, reduce } from "robot3";
-import { useMachine } from "svelte-robot-factory";
-const context = (event) => ({
-  foo: event.foo,
+import { createMachine, state, transition, invoke, reduce } from 'robot3';
+import { useMachine } from 'svelte-robot-factory';
+const context = event => ({
+  foo: event.foo
 });
 const event = {
-  foo: "initial",
+  foo: 'initial'
 };
-const machine = createMachine(
-  {
-    inactive: state(
-      transition(
-        "toggle",
-        "active",
-        reduce((ctx, ev) => ({ ...ctx, foo: "bar" }))
-      )
-    ),
-    active: state(
-      transition(
-        "toggle",
-        "inactive",
-        reduce((ctx, ev) => ({ ...ctx, foo: "foo" }))
-      )
-    ),
-  },
-  context
-);
+const machine = createMachine({
+  inactive: state(
+    transition('toggle', 'active', 
+      reduce((ctx, ev)=>({ ...ctx, foo: 'bar'}))
+    )
+  ),
+  active: state(
+    transition('toggle', 'inactive', 
+      reduce((ctx, ev)=>({ ...ctx, foo: 'foo'}))
+    )
+  )
+}, context);
 
 const service = useMachine(machine, event);
 export default service;
