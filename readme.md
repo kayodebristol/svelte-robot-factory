@@ -1,8 +1,8 @@
 ---
 layout: page.njk
-title: robot-hooks
+title: svelte-robot-factory
 tags: integrations
-permalink: integrations/robot-hooks.html
+permalink: integrations/svelte-robot-factory.html
 ---
 
 # svelte-robot-factory
