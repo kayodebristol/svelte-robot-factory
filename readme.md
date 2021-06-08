@@ -5,7 +5,7 @@ tags: integrations
 permalink: integrations/svelte-robot-factory.html
 ---
 
-[![Node.js Package](https://github.com/kayodebristol/svelte-robot-factory/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/kayodebristol/svelte-robot-factory/actions/workflows/npm-publish.yml)
+[![Node.js Package](https://github.com/kayodebristol/svelte-robot-factory/actions/workflows/npm-publish.yml/badge.svg?branch=2.0.0)](https://github.com/kayodebristol/svelte-robot-factory/actions/workflows/npm-publish.yml)
 
 # svelte-robot-factory
 
