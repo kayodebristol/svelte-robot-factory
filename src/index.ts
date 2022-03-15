@@ -1,6 +1,6 @@
-import { writable } from "svelte/store";
-import { interpret, Machine } from "robot3";
 
+import { interpret, Machine } from "robot3";
+import { writable } from "svelte/store";
 export function useMachine<E>(
   machine: Machine,
   event: { [K in keyof E]: any }

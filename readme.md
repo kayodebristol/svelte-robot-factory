@@ -15,6 +15,7 @@ Table of Contents
   - [Installation](#installation)
   - [API](#api)
   - [Example](#example)
+  - [Sveltekit](#sveltekit)
   - [License](#license)
 
 The svelte-robot-factory returns a svelte writable store which implements a robot machine service.
@@ -104,12 +105,12 @@ const event = {
 };
 const machine = createMachine({
   inactive: state(
-    transition('toggle', 'active', 
+    transition('toggle', 'active',
       reduce((ctx, ev)=>({ ...ctx, foo: 'bar'}))
     )
   ),
   active: state(
-    transition('toggle', 'inactive', 
+    transition('toggle', 'inactive',
       reduce((ctx, ev)=>({ ...ctx, foo: 'foo'}))
     )
   )
@@ -118,7 +119,29 @@ const machine = createMachine({
 const service = useMachine(machine, event);
 export default service;
 ```
+## Sveltekit
 
+Due to a [known issue with vite handling of commonjs modules](https://github.com/sveltejs/kit/issues/928), when used with sveltekit, add prebundleSvelteLibraries: true, to your svelte.config.js.
+
+For example, [svelte.config.js]
+
+```javascript
+import adapter from '@sveltejs/adapter-auto';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	experimental: {
+		prebundleSvelteLibraries: true
+	},
+	kit: {
+		adapter: adapter()
+	}
+};
+
+export default config;
+```
+
+Or, reference the [sveltekit-toggle](svelte-robot-factory\example\sveltekit-toggle) example.
 ## License
 
 **[MIT](https://opensource.org/licenses/MIT)**

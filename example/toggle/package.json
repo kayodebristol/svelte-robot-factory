@@ -17,6 +17,7 @@
     "svelte": "^3.38.2"
   },
   "dependencies": {
-    "sirv-cli": "^1.0.12"
+    "sirv-cli": "^1.0.12",
+    "svelte-robot-factory": "^2.0.3"
   }
 }
