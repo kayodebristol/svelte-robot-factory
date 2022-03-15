@@ -11,9 +11,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c && tsc",
-    "test": "echo \"no test specified\" && exit 0",
-    "prepare": "npm run build",
-    "publish": "npm "
+    "test": "echo \"no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
