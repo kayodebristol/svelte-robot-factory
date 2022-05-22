@@ -141,7 +141,7 @@ const config = {
 export default config;
 ```
 
-Or, reference the [sveltekit-toggle]https://github.com/kayodebristol/svelte-robot-factory/tree/master/example/sveltekit-toggle) example.
+Or, reference the [sveltekit-toggle](https://github.com/kayodebristol/svelte-robot-factory/tree/master/example/sveltekit-toggle) example.
 ## License
 
 **[MIT](https://opensource.org/licenses/MIT)**
