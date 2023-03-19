@@ -1,0 +1,48 @@
+{
+  "name": "svelte-robot-factory",
+  "version": "2.0.5-alpha",
+  "description": "svelte robot integration",
+  "main": "dist/index.es.js",
+  "type": "module",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kayodebristol/svelte-robot-factory.git"
+  },
+  "keywords": [
+    "svelte",
+    "robot",
+    "finite state machine",
+    "integration"
+  ],
+  "author": "Kayode Bristol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kayodebristol/svelte-robot-factory/issues"
+  },
+  "homepage": "https://github.com/kayodebristol/svelte-robot-factory#readme",
+  "peerDependencies": {
+    "robot3": "~0.2.x",
+    "svelte": "~3.x"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.3",
+    "@tsconfig/svelte": "^3.0.0",
+    "@types/node": "^18.15.3",
+    "svelte": "^3.55.1",
+    "svelte-check": "^2.10.3",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  }
+}
