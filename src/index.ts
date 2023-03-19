@@ -10,3 +10,22 @@ export function useMachine<E>(
   );
   return { subscribe };
 }
+
+
+/*
+import { interpret, Machine } from "robot3";
+import { writable, Writable } from "svelte/store";
+
+type Service = Record<string, any>;
+
+export function useMachine<E extends Record<string, unknown>>(
+  machine: Machine<Service, E>,
+  events: E
+): { subscribe: Writable<Service>["subscribe"] } {
+  const { subscribe, set } = writable<Service>(
+    interpret(machine, ((service) => set(service)), events)
+  );
+
+  return { subscribe };
+}
+*/

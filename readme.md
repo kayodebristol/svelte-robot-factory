@@ -58,6 +58,11 @@ function useMachine(machine, event)
 }
 ```
 
+Explaination:
+This code exports a function named useMachine that takes in two arguments: machine and event. It uses the Machine and interpret functions imported from the robot3 library, and the writable function imported from the svelte/store library.
+When useMachine is called, it creates a Svelte store by calling the writable function, passing in the result of invoking interpret on the machine and event arguments. interpret creates an instance of a state machine and provides a callback function that updates the Svelte store with the new state returned by the instance.
+The function returns an object with a subscribe method that allows components to subscribe to changes in the store. Whenever a component subscribes to the store, it will be notified with the current state and any future state changes.
+
 ## Example
 
 [View in REPL](https://svelte.dev/repl/a9904c210b474bd2ab71d9b7c26c4c38?version=3.12.1)
