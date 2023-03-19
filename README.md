@@ -1,47 +1,193 @@
-# Svelte + TS + Vite
+---
+layout: page.njk
+title: svelte-robot-factory
+tags: integrations
+permalink: integrations/svelte-robot-factory.html
+---
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+[![Node.js Package](https://github.com/kayodebristol/svelte-robot-factory/actions/workflows/npm-publish.yml/badge.svg?branch=2.0.0)](https://github.com/kayodebristol/svelte-robot-factory/actions/workflows/npm-publish.yml)
 
-## Recommended IDE Setup
+# svelte-robot-factory
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+Table of Contents
 
-## Need an official Svelte framework?
+- [svelte-robot-factory](#svelte-robot-factory)
+  - [Installation](#installation)
+  - [API](#api)
+  - [Example](#example)
+  - [Sveltekit](#sveltekit)
+- [This workflow will run tests using node and then publish a package to GitHub Packages when a release is created](#this-workflow-will-run-tests-using-node-and-then-publish-a-package-to-github-packages-when-a-release-is-created)
+- [For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages](#for-more-information-see-httpsdocsgithubcomenactionspublishing-packagespublishing-nodejs-packages)
+  - [License](#license)
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+The svelte-robot-factory returns a svelte writable store which implements a robot machine service.
 
-## Technical considerations
+## Installation
 
-**Why use this over SvelteKit?**
+npm:
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+```bash
+npm install svelte-robot-factory robot3 --save
 ```
+
+yarn:
+
+```bash
+yarn add svelte-robot-factory robot3
+```
+
+## API
+
+```javascript
+useMachine(machine, event);
+```
+
+Arguments:
+
+- [machine](https://thisrobot.life/api/interpret.html#machine): Robot state machine
+- [event](https://thisrobot.life/api/interpret.html#event): Object which will be passed to the [context function](https://thisrobot.life/api/createMachine.html#context)
+
+Returns:
+
+- [Writable svelte store](https://svelte.dev/docs#writable) which implements a robot [service](https://thisrobot.life/api/interpret.html#service) on subscribe
+
+```javascript
+function useMachine(machine, event)
+    const {subscribe, set} = writable(
+        interpret(machine, service => set(service), event)
+    )
+    return {subscribe}
+}
+```
+
+Explaination:
+This code exports a function named useMachine that takes in two arguments: machine and event. It uses the Machine and interpret functions imported from the robot3 library, and the writable function imported from the svelte/store library.
+When useMachine is called, it creates a Svelte store by calling the writable function, passing in the result of invoking interpret on the machine and event arguments. interpret creates an instance of a state machine and provides a callback function that updates the Svelte store with the new state returned by the instance.
+The function returns an object with a subscribe method that allows components to subscribe to changes in the store. Whenever a component subscribes to the store, it will be notified with the current state and any future state changes.
+
+## Example
+
+[View in REPL](https://svelte.dev/repl/a9904c210b474bd2ab71d9b7c26c4c38?version=3.12.1)
+
+```js
+<!--
+  example integration with https://thisrobot.life
+	supports send, context, and machine (to include machine.current & machine.state)
+-->
+
+<script>
+  import service from './store.js';
+  import Child from './Child.svelte'
+  const send = $service.send;
+  $: current = $service.machine.current
+</script>
+
+<div>Current state value: {current}</div>
+<Child/>
+
+<button on:click={() => send('toggle')}>
+  Toggle
+</button>
+```
+
+```js
+/// Child.svelte
+<script>
+  import service from './store.js';
+  $: foo = $service.context.foo;
+</script>
+
+<div>Context value of foo property: {foo}</div>
+```
+
+```js
+/// store
+import { createMachine, state, transition, invoke, reduce } from 'robot3';
+import { useMachine } from 'svelte-robot-factory';
+const context = event => ({
+  foo: event.foo
+});
+const event = {
+  foo: 'initial'
+};
+const machine = createMachine({
+  inactive: state(
+    transition('toggle', 'active',
+      reduce((ctx, ev)=>({ ...ctx, foo: 'bar'}))
+    )
+  ),
+  active: state(
+    transition('toggle', 'inactive',
+      reduce((ctx, ev)=>({ ...ctx, foo: 'foo'}))
+    )
+  )
+}, context);
+
+const service = useMachine(machine, event);
+export default service;
+```
+## Sveltekit
+
+Due to a [known issue with vite handling of commonjs modules](https://github.com/sveltejs/kit/issues/928), when used with sveltekit, add prebundleSvelteLibraries: true, to your svelte.config.js.
+
+For example, [svelte.config.js]
+
+```javascript
+import adapter from '@sveltejs/adapter-auto';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	experimental: {
+		prebundleSvelteLibraries: true
+	},
+	kit: {
+		adapter: adapter()
+	}
+};
+
+export default config;
+```
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+Or, reference the [sveltekit-toggle](https://github.com/kayodebristol/svelte-robot-factory/tree/master/example/sveltekit-toggle) example.
+## License
+
+**[MIT](https://opensource.org/licenses/MIT)**
