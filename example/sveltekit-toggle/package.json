@@ -15,7 +15,8 @@
   },
   "type": "module",
   "dependencies": {
-    "robot3": "^0.4.0"
-    
+    "robot3": "^0.4.0",
+    "svelte-robot-factory": "^2.0.5"
+
   }
 }

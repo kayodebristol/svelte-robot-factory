@@ -9,7 +9,6 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
-    "robot3": "latest",
     "rollup": "^2.51.1",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.1.0",
@@ -18,6 +17,7 @@
   },
   "dependencies": {
     "sirv-cli": "^1.0.12",
-    "svelte-robot-factory": "^2.0.3"
+    "svelte-robot-factory": "^2.0.3",
+    "robot3": "latest"
   }
 }
