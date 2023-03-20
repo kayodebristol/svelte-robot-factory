@@ -94,9 +94,7 @@ function E(t, n = b) {
   return { set: r, update: o, subscribe: d };
 }
 function P(t, n) {
-  const { subscribe: e, set: i } = E(
-    S(t, (r) => i(r), n)
-  );
+  const { subscribe: e, set: i } = E(S(t, (r) => i(r), n));
   return { subscribe: e };
 }
 export {

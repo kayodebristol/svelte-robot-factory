@@ -1,6 +1,6 @@
 {
   "name": "svelte-robot-factory",
-  "version": "2.0.5-alpha",
+  "version": "2.0.5-alph",
   "description": "svelte robot integration",
   "main": "dist/index.es.js",
   "type": "module",
@@ -36,9 +36,11 @@
     "svelte": "~3.x"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.0.0",
     "@sveltejs/vite-plugin-svelte": "^2.0.3",
     "@tsconfig/svelte": "^3.0.0",
     "@types/node": "^18.15.3",
+    "path": "^0.12.7",
     "svelte": "^3.55.1",
     "svelte-check": "^2.10.3",
     "tslib": "^2.5.0",
