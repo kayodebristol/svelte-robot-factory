@@ -1,6 +1,6 @@
 {
   "name": "svelte-robot-factory",
-  "version": "2.0.5-alpha.1",
+  "version": "2.0.5-alpha.2",
   "description": "svelte robot integration",
   "main": "dist/index.es.js",
   "type": "module",
