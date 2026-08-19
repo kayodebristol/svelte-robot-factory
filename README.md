@@ -22,6 +22,8 @@ Table of Contents
 
 The svelte-robot-factory returns a svelte writable store which implements a robot machine service.
 
+Compatible with Svelte 3, 4, and 5.
+
 ## Installation
 
 npm:
