@@ -102,8 +102,9 @@ The function returns an object with a subscribe method that allows components to
 
 ```js
 /// store
-import { createMachine, state, transition, invoke, reduce } from 'robot3';
+import robot3 from 'robot3';
 import { useMachine } from 'svelte-robot-factory';
+const { createMachine, state, transition, reduce } = robot3;
 const context = event => ({
   foo: event.foo
 });

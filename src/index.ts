@@ -1,5 +1,6 @@
 
-import { interpret, Machine } from "robot3";
+import { interpret } from "robot3";
+import type { Machine } from "robot3";
 import { writable } from "svelte/store";
 export function useMachine<E>(
   machine: Machine,
