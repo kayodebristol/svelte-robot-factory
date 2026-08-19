@@ -33,7 +33,7 @@
   "homepage": "https://github.com/kayodebristol/svelte-robot-factory#readme",
   "peerDependencies": {
     "robot3": "^0.4.0",
-    "svelte": "~3.x"
+    "svelte": ">=3 <6"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.0.0",

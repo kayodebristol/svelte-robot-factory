@@ -129,18 +129,17 @@ export default service;
 ```
 ## Sveltekit
 
-Due to a [known issue with vite handling of commonjs modules](https://github.com/sveltejs/kit/issues/928), when used with sveltekit, add prebundleSvelteLibraries: true, to your svelte.config.js.
+No extra configuration is required with SvelteKit 2, the default svelte.config.js works as is.
 
 For example, [svelte.config.js]
 
 ```javascript
 import adapter from '@sveltejs/adapter-auto';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	experimental: {
-		prebundleSvelteLibraries: true
-	},
+	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter()
 	}
