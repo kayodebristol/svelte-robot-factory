@@ -41,8 +41,8 @@
     "@tsconfig/svelte": "^3.0.0",
     "@types/node": "^18.15.3",
     "path": "^0.12.7",
-    "svelte": "^3.55.1",
-    "svelte-check": "^2.10.3",
+    "svelte": "^5.56.9",
+    "svelte-check": "^4.7.6",
     "tslib": "^2.5.0",
     "typescript": "^4.9.3",
     "vite": "^8.2.1"
